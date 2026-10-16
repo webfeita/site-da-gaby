@@ -14,10 +14,15 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ==========================================================================
-  // 1. CONFIGURAÇÃO DO CONTATO
+  // 1. CONFIGURAÇÃO DOS CONTATOS
   // ==========================================================================
-  // Altere aqui caso o número de WhatsApp do estúdio mude no futuro:
+  // Número de WhatsApp da Manicure / Estúdio (para agendamentos de unhas):
   const WHATSAPP_NUMERO = '5583993248009';
+
+  // DADOS DO DESENVOLVEDOR (VICTOR - CRIAÇÃO DE SITES):
+  const WHATSAPP_DEV = '5521970253042'; 
+  const NOME_DEV = 'Victor';
+  const INSTA_DEV = 'vitorrj_dev';
 
   // ==========================================================================
   // 2. ELEMENTOS DO DOM (FORMULÁRIO E CAMPOS)
@@ -328,6 +333,30 @@ Podemos confirmar este horário? Fico no aguardo, obrigada! 💖`;
     };
     bgTest.src = './image/unha-natural-rosa.jpeg';
   }
+
+  // ==========================================================================
+  // 13. DIVULGAÇÃO DO SERVIÇO DE CRIAÇÃO DE SITES (PROSPECÇÃO DE CLIENTES)
+  // Ao clicar no banner ou no crédito do rodapé, abre o WhatsApp do desenvolvedor
+  // com mensagem pronta solicitando orçamento de site!
+  // ==========================================================================
+  const nomeDevDisplay = document.getElementById('nomeDevDisplay');
+  if (nomeDevDisplay && NOME_DEV) {
+    nomeDevDisplay.textContent = NOME_DEV;
+  }
+
+  const btnDevWhatsapp = document.getElementById('btnDevWhatsapp');
+  const linkDevCredit = document.getElementById('linkDevCredit');
+
+  function abrirWhatsAppDev(e) {
+    e.preventDefault();
+    const mensagemDev = encodeURIComponent(
+      "Olá! Vi o site profissional da _studio_gabyy_nails que você desenvolveu e gostei muito. Gostaria de solicitar um orçamento para criar um site para o meu negócio!"
+    );
+    window.open(`https://wa.me/${WHATSAPP_DEV}?text=${mensagemDev}`, '_blank');
+  }
+
+  if (btnDevWhatsapp) btnDevWhatsapp.addEventListener('click', abrirWhatsAppDev);
+  if (linkDevCredit) linkDevCredit.addEventListener('click', abrirWhatsAppDev);
 
 });
 
