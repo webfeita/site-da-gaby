@@ -283,5 +283,51 @@ Podemos confirmar este horário? Fico no aguardo, obrigada! 💖`;
     spanAno.textContent = new Date().getFullYear();
   }
 
+  // ==========================================================================
+  // 12. RECUPERAÇÃO AUTOMÁTICA DE IMAGENS (COMPATIBILIDADE GITHUB PAGES)
+  // Caso as imagens no GitHub Pages tenham sido enviadas para a raiz do repositório
+  // ou a extensão variar entre .jpeg e .jpg, este script recupera automaticamente!
+  // ==========================================================================
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', function() {
+      const srcOriginal = this.getAttribute('src');
+      if (!srcOriginal || this.dataset.triedFallback === 'done') return;
+
+      if (!this.dataset.triedCount) this.dataset.triedCount = '0';
+      const count = parseInt(this.dataset.triedCount);
+
+      // Tentativa 1: se estava em ./image/nome.ext, tenta na raiz ./nome.ext
+      if (count === 0 && srcOriginal.includes('image/')) {
+        this.dataset.triedCount = '1';
+        this.src = srcOriginal.replace(/(\.\/)?image\//, './');
+        return;
+      }
+
+      // Tentativa 2: alternar entre .jpeg e .jpg
+      if (count <= 1) {
+        this.dataset.triedCount = '2';
+        if (this.src.endsWith('.jpeg')) {
+          this.src = this.src.replace(/\.jpeg$/, '.jpg');
+          return;
+        } else if (this.src.endsWith('.jpg')) {
+          this.src = this.src.replace(/\.jpg$/, '.jpeg');
+          return;
+        }
+      }
+
+      this.dataset.triedFallback = 'done';
+    });
+  });
+
+  // Garante imagem de fundo da Hero se a pasta image não for encontrada
+  const heroSection = document.querySelector('.hero-section');
+  if (heroSection) {
+    const bgTest = new Image();
+    bgTest.onerror = () => {
+      heroSection.style.backgroundImage = "linear-gradient(135deg, rgba(253, 241, 243, 0.92) 0%, rgba(247, 228, 231, 0.88) 50%, rgba(245, 237, 230, 0.92) 100%), url('./unha-natural-rosa.jpeg'), url('./unha-natural-rosa.jpg')";
+    };
+    bgTest.src = './image/unha-natural-rosa.jpeg';
+  }
+
 });
 
