@@ -1,0 +1,1625 @@
+/* ==========================================================================
+   _STUDIO_GABYY_NAILS - FOLHA DE ESTILOS (CSS)
+   Design: Elegante, Moderno, Feminino e Acolhedor
+   Paleta: Tons de Rosa Pastel, Nude, Branco e Rose Gold / Dourado
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIÁVEIS CSS (PALETA DE CORES E CONFIGURAÇÕES)
+   Aqui você pode personalizar as cores principais do site caso deseje.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Cores Principais - Tons de Rosa Pastel & Nude */
+  --color-pink-soft: #fcf3f4;       /* Rosa pastel bem clarinho para fundos */
+  --color-pink-light: #f7e4e7;      /* Rosa pastel suave para cartões e detalhes */
+  --color-pink-medium: #e8bdc5;     /* Rosa pastel médio para bordas e destaques */
+  --color-nude-light: #fdfbf7;      /* Nude quase branco para respirabilidade */
+  --color-nude-medium: #f5ede6;     /* Nude suave para seções alternadas */
+  --color-white: #ffffff;
+
+  /* Detalhes Nobres em Rose Gold & Dourado */
+  --color-rose-gold: #c58a8f;       /* Rose gold sofisticado */
+  --color-rose-gold-dark: #a86c72;  /* Rose gold escuro para contrastes */
+  --color-gold-accent: #d8a074;     /* Toque dourado quente */
+  --gradient-rose-gold: linear-gradient(135deg, #d89fa3 0%, #c58a8f 50%, #ae6d74 100%);
+  --gradient-gold: linear-gradient(135deg, #e4b382 0%, #c58a8f 100%);
+  --gradient-soft-bg: linear-gradient(180deg, #fdfbf9 0%, #fcf3f4 100%);
+
+  /* Cores de Tipografia (Excelente contraste e conforto visual) */
+  --color-text-dark: #2c2221;       /* Títulos e textos de ênfase */
+  --color-text-body: #5a4b49;       /* Parágrafos e descrições */
+  --color-text-muted: #8d7a78;      /* Textos secundários, datas e placeholders */
+
+  /* Cores de Ação & Apoio */
+  --color-whatsapp: #25d366;        /* Verde oficial WhatsApp */
+  --color-whatsapp-dark: #128c7e;
+  --color-error: #d9534f;           /* Mensagens de erro de validação */
+
+  /* Fontes */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Montserrat', system-ui, -apple-system, sans-serif;
+
+  /* Sombras Suaves e Elegantes */
+  --shadow-subtle: 0 4px 20px rgba(168, 108, 114, 0.08);
+  --shadow-card: 0 10px 30px rgba(168, 108, 114, 0.12);
+  --shadow-hover: 0 16px 36px rgba(168, 108, 114, 0.18);
+  --shadow-floating: 0 10px 25px rgba(37, 211, 102, 0.35);
+
+  /* Transições suaves */
+  --transition-fast: all 0.25s ease;
+  --transition-normal: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --radius-card: 20px;
+  --radius-btn: 50px;
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET E ESTILOS GLOBAIS
+   -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-nude-light);
+  color: var(--color-text-body);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. TIPOGRAFIA COMPARTILHADA & ELEMENTOS DE DECORAÇÃO
+   -------------------------------------------------------------------------- */
+.section-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--color-rose-gold);
+  margin-bottom: 0.6rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.3rem;
+  color: var(--color-text-dark);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.8rem;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.divider-rose {
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-rose-gold);
+  border-radius: 4px;
+  margin: 0.8rem 0 1.5rem 0;
+}
+
+.divider-rose.center {
+  margin: 0.8rem auto 1.5rem auto;
+}
+
+/* --------------------------------------------------------------------------
+   4. BOTÕES E ESTILOS DE AÇÃO
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 2rem;
+  font-size: 0.98rem;
+  font-weight: 600;
+  border-radius: var(--radius-btn);
+  transition: var(--transition-normal);
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--gradient-rose-gold);
+  color: var(--color-white);
+  box-shadow: 0 8px 24px rgba(197, 138, 143, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(197, 138, 143, 0.55);
+  filter: brightness(1.05);
+}
+
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-dark);
+  border: 1px solid var(--color-pink-medium);
+  backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-white);
+  border-color: var(--color-rose-gold);
+  color: var(--color-rose-gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-subtle);
+}
+
+/* --------------------------------------------------------------------------
+   5. NAVBAR / CABEÇALHO FIXO
+   -------------------------------------------------------------------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(253, 251, 247, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(232, 189, 197, 0.4);
+  transition: var(--transition-fast);
+}
+
+.navbar.scrolled {
+  box-shadow: var(--shadow-subtle);
+  background-color: rgba(255, 255, 255, 0.96);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 75px;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  letter-spacing: -0.3px;
+}
+
+.nav-logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-rose-gold);
+  box-shadow: 0 2px 8px rgba(197, 138, 143, 0.25);
+}
+
+.logo-sparkle {
+  color: var(--color-rose-gold);
+  font-size: 1.1rem;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-body);
+  position: relative;
+  padding: 0.3rem 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-rose-gold);
+  transition: var(--transition-fast);
+  border-radius: 2px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-rose-gold-dark);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.btn-nav {
+  padding: 0.65rem 1.4rem;
+  background: var(--gradient-rose-gold);
+  color: var(--color-white);
+  border-radius: var(--radius-btn);
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(197, 138, 143, 0.3);
+  transition: var(--transition-fast);
+}
+
+.btn-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(197, 138, 143, 0.45);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  color: var(--color-text-dark);
+  font-size: 1.4rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. HERO SECTION (CABEÇALHO COM IMAGEM DE FUNDO)
+   * ATENÇÃO: Para mudar a imagem de fundo, coloque seu arquivo "fundo-hero.jpg"
+   na mesma pasta deste site. Caso não exista, o degradê abaixo garante
+   que a página continue linda e charmosa.
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 130px 0 80px 0;
+  background-color: #f7ecea;
+  /* Imagem de fundo com foto do estúdio e degradê suave */
+  background-image: 
+    linear-gradient(135deg, rgba(253, 241, 243, 0.92) 0%, rgba(247, 228, 231, 0.88) 50%, rgba(245, 237, 230, 0.92) 100%),
+    url('image/unha-natural-rosa.jpeg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle at 80% 20%, rgba(216, 159, 163, 0.18) 0%, transparent 60%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+}
+
+.hero-showcase {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-showcase-frame {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 3 / 4;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(168, 108, 114, 0.22);
+  border: 4px solid rgba(255, 255, 255, 0.85);
+  transition: var(--transition-normal);
+}
+
+.hero-showcase-frame:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 25px 55px rgba(168, 108, 114, 0.3);
+}
+
+.hero-showcase-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.showcase-floating-card {
+  position: absolute;
+  bottom: 22px;
+  left: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(232, 189, 197, 0.6);
+  padding: 0.9rem 1.2rem;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+}
+
+.showcase-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--gradient-rose-gold);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.showcase-info strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--color-text-dark);
+}
+
+.showcase-info span {
+  font-size: 0.76rem;
+  color: var(--color-rose-gold-dark);
+  font-weight: 500;
+}
+
+.hero-decoration-circle {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 100%;
+  max-width: 380px;
+  height: 100%;
+  border-radius: 32px;
+  border: 2px dashed var(--color-rose-gold);
+  opacity: 0.45;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.badge-destaque {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--color-pink-medium);
+  color: var(--color-rose-gold-dark);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-btn);
+  margin-bottom: 1.3rem;
+  box-shadow: 0 2px 10px rgba(197, 138, 143, 0.15);
+}
+
+.badge-destaque i {
+  color: var(--color-gold-accent);
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 3.4rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.15;
+  margin-bottom: 1.3rem;
+}
+
+.hero-title span {
+  background: var(--gradient-rose-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--color-text-body);
+  line-height: 1.7;
+  margin-bottom: 2.2rem;
+  max-width: 650px;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.8rem;
+}
+
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  border-top: 1px solid rgba(197, 138, 143, 0.3);
+  padding-top: 1.8rem;
+}
+
+.pill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-dark);
+}
+
+.pill-item i {
+  color: var(--color-rose-gold);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* --------------------------------------------------------------------------
+   7. SEÇÃO SOBRE O ESTÚDIO
+   -------------------------------------------------------------------------- */
+.about-section {
+  padding: 100px 0;
+  background-color: var(--color-white);
+  position: relative;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-image-wrapper {
+  position: relative;
+}
+
+.about-image-frame {
+  position: relative;
+  z-index: 2;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(135deg, #fceef0, #f8d7da);
+}
+
+.about-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fallback visual caso a imagem sobre.jpg ainda não tenha sido inserida */
+.about-image-frame.image-placeholder::before {
+  content: '💅\A\A Foto do Estúdio\A(sobre.jpg)';
+  white-space: pre-wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  inset: 0;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--color-rose-gold-dark);
+  background: linear-gradient(135deg, #fceef0 0%, #f7dbe0 50%, #f1c7cf 100%);
+  padding: 2rem;
+}
+
+.about-experience-badge {
+  position: absolute;
+  bottom: 25px;
+  right: -20px;
+  background: var(--gradient-rose-gold);
+  color: var(--color-white);
+  padding: 1.1rem 1.6rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(174, 109, 116, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+.exp-number {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.exp-text {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.frame-decoration {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed var(--color-pink-medium);
+  border-radius: var(--radius-card);
+  z-index: 1;
+}
+
+.paragraph {
+  font-size: 1.02rem;
+  color: var(--color-text-body);
+  margin-bottom: 1.1rem;
+}
+
+.about-features {
+  list-style: none;
+  margin: 1.8rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.about-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.about-features li i {
+  color: var(--color-rose-gold);
+  background-color: var(--color-pink-soft);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.about-features li strong {
+  display: block;
+  color: var(--color-text-dark);
+  font-size: 0.98rem;
+}
+
+.about-features li span {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   8. SEÇÃO NOSSOS SERVIÇOS (CARTÕES)
+   -------------------------------------------------------------------------- */
+.services-section {
+  padding: 100px 0;
+  background: var(--gradient-soft-bg);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.service-card {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid rgba(232, 189, 197, 0.4);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: var(--transition-normal);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-pink-medium);
+}
+
+.service-card.featured {
+  border: 2px solid var(--color-rose-gold);
+}
+
+.service-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--gradient-rose-gold);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-btn);
+  z-index: 3;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.service-img-wrap {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #f7e4e7, #ebd2d7);
+}
+
+.service-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-img-wrap img {
+  transform: scale(1.06);
+}
+
+/* Fallbacks elegantes com degradês e ícone quando as imagens ainda não existem */
+.service-img-wrap[class*="service-placeholder"]::before {
+  content: '💅 Espaço para foto do serviço';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-rose-gold-dark);
+  text-align: center;
+  padding: 1rem;
+}
+
+.service-placeholder-1::before { content: '💅 Fibra de Vidro\A(servico1.jpg)'; white-space: pre-wrap; background: linear-gradient(135deg, #fae2e6, #f3ccd3); }
+.service-placeholder-2::before { content: '💅 Unha em Gel\A(servico2.jpg)'; white-space: pre-wrap; background: linear-gradient(135deg, #f5ece5, #eed8ce); }
+.service-placeholder-3::before { content: '💅 Acrigel\A(servico3.jpg)'; white-space: pre-wrap; background: linear-gradient(135deg, #fae8eb, #f2d2d8); }
+.service-placeholder-4::before { content: '💅 Blindagem & Gel\A(servico4.jpg)'; white-space: pre-wrap; background: linear-gradient(135deg, #f7ebe6, #eedcd4); }
+.service-placeholder-5::before { content: '💅 Manicure Tradicional\A(servico5.jpg)'; white-space: pre-wrap; background: linear-gradient(135deg, #fae2e6, #f6ced6); }
+.service-placeholder-6::before { content: '🦶 Spa dos Pés\A(servico6.jpg)'; white-space: pre-wrap; background: linear-gradient(135deg, #f5eee8, #e8dad0); }
+
+.service-card-body {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.service-name {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--color-text-dark);
+  margin-bottom: 0.6rem;
+}
+
+.service-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-body);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.service-perks {
+  list-style: none;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.service-perks li {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.service-perks li i {
+  color: var(--color-rose-gold);
+  font-size: 0.8rem;
+}
+
+.btn-card-select {
+  margin-top: auto;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-pink-soft);
+  color: var(--color-rose-gold-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: var(--transition-fast);
+}
+
+.btn-card-select:hover {
+  background: var(--gradient-rose-gold);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   8.1 SEÇÃO PORTFÓLIO / GALERIA DE FOTOS REAIS
+   -------------------------------------------------------------------------- */
+.gallery-section {
+  padding: 90px 0;
+  background-color: #fffafb;
+  border-top: 1px solid rgba(232, 189, 197, 0.35);
+  border-bottom: 1px solid rgba(232, 189, 197, 0.35);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.gallery-card {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+  border: 1px solid rgba(232, 189, 197, 0.4);
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-rose-gold);
+}
+
+.gallery-image-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: #f7e4e7;
+}
+
+.gallery-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-card:hover .gallery-image-box img {
+  transform: scale(1.08);
+}
+
+.gallery-badge-overlay {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+}
+
+.badge-tech {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--color-rose-gold-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-btn);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.gallery-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.gallery-item-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-text-dark);
+  margin-bottom: 0.4rem;
+}
+
+.gallery-item-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-body);
+  line-height: 1.55;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+
+.btn-gallery-book {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  background: var(--color-pink-soft);
+  color: var(--color-rose-gold-dark);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: var(--transition-fast);
+}
+
+.btn-gallery-book:hover {
+  background: var(--gradient-rose-gold);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   9. SEÇÃO DIFERENCIAIS
+   -------------------------------------------------------------------------- */
+.differentials-section {
+  padding: 85px 0;
+  background-color: var(--color-white);
+}
+
+.diff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.diff-card {
+  background: var(--color-nude-light);
+  border: 1px solid rgba(232, 189, 197, 0.4);
+  padding: 2.2rem 1.8rem;
+  border-radius: var(--radius-card);
+  text-align: center;
+  transition: var(--transition-fast);
+}
+
+.diff-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-rose-gold);
+  background-color: #fffafb;
+  box-shadow: var(--shadow-subtle);
+}
+
+.diff-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: var(--gradient-rose-gold);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto 1.3rem auto;
+  box-shadow: 0 6px 18px rgba(197, 138, 143, 0.35);
+}
+
+.diff-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-text-dark);
+  margin-bottom: 0.6rem;
+}
+
+.diff-card p {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   10. SEÇÃO FORMULÁRIO DE AGENDAMENTO (CONVERSÃO)
+   -------------------------------------------------------------------------- */
+.booking-section {
+  padding: 110px 0;
+  background: linear-gradient(135deg, #fbf7f8 0%, #f7eaed 100%);
+  position: relative;
+}
+
+.booking-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.booking-info {
+  padding-right: 1rem;
+}
+
+.badge-booking {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-pink-light);
+  color: var(--color-rose-gold-dark);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-btn);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.booking-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+
+.booking-text {
+  font-size: 1.05rem;
+  color: var(--color-text-body);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.booking-direct-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-box {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(232, 189, 197, 0.5);
+  padding: 1rem 1.4rem;
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.contact-icon {
+  font-size: 1.8rem;
+  color: var(--color-rose-gold);
+}
+
+.contact-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.contact-value {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.booking-security-note {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.booking-security-note i {
+  color: var(--color-rose-gold);
+}
+
+/* O Cartão do Formulário */
+.booking-card {
+  background: var(--color-white);
+  border-radius: 28px;
+  padding: 2.8rem;
+  box-shadow: 0 20px 50px rgba(168, 108, 114, 0.15);
+  border: 1px solid rgba(232, 189, 197, 0.5);
+  position: relative;
+}
+
+.form-title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--color-text-dark);
+  margin-bottom: 0.2rem;
+}
+
+.form-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+}
+
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  position: relative;
+}
+
+.form-group label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.form-group label i {
+  color: var(--color-rose-gold);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  color: var(--color-text-dark);
+  background-color: #fdfbfb;
+  border: 1.5px solid #ebd9dc;
+  border-radius: 12px;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #baaaab;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--color-rose-gold);
+  background-color: var(--color-white);
+  box-shadow: 0 0 0 4px rgba(197, 138, 143, 0.18);
+}
+
+/* Estado de Erro na Validação */
+.form-group.has-error input,
+.form-group.has-error select {
+  border-color: var(--color-error);
+  background-color: #fff9f9;
+}
+
+.error-msg {
+  display: none;
+  font-size: 0.78rem;
+  color: var(--color-error);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.form-group.has-error .error-msg {
+  display: block;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c58a8f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Botão de Envio WhatsApp (Destaque Principal) */
+.btn-whatsapp-submit {
+  width: 100%;
+  padding: 1.1rem;
+  background: linear-gradient(135deg, #25d366 0%, #1ebe5d 100%);
+  color: var(--color-white);
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: var(--radius-btn);
+  border: none;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  transition: var(--transition-normal);
+  margin-top: 0.6rem;
+}
+
+.btn-whatsapp-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.48);
+  filter: brightness(1.05);
+}
+
+.btn-whatsapp-submit i {
+  font-size: 1.35rem;
+}
+
+.form-disclaimer {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+.form-disclaimer i {
+  color: var(--color-rose-gold);
+}
+
+/* --------------------------------------------------------------------------
+   11. RODAPÉ (FOOTER)
+   -------------------------------------------------------------------------- */
+.footer {
+  background-color: #241c1b;
+  color: #dfd3d1;
+  padding: 70px 0 0 0;
+  position: relative;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 3rem;
+  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.footer-logo-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-rose-gold);
+}
+
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  color: #ffffff;
+}
+
+.footer-desc {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #a89896;
+  max-width: 320px;
+}
+
+.footer-heading {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.footer-links a {
+  font-size: 0.9rem;
+  color: #a89896;
+  transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: #f7e4e7;
+  padding-left: 5px;
+}
+
+.footer-contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.contact-link-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.92rem;
+  color: #dfd3d1;
+}
+
+.contact-link-item i {
+  color: var(--color-rose-gold);
+  font-size: 1.15rem;
+}
+
+.contact-link-item:hover {
+  color: #ffffff;
+}
+
+.contact-link-item.not-link:hover {
+  color: #dfd3d1;
+}
+
+.footer-bottom {
+  padding: 25px 0;
+  font-size: 0.85rem;
+  color: #8d7a78;
+}
+
+.bottom-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.made-with i {
+  color: #d86b78;
+}
+
+/* --------------------------------------------------------------------------
+   12. BOTÃO FLUTUANTE DO WHATSAPP
+   -------------------------------------------------------------------------- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 62px;
+  height: 62px;
+  background-color: var(--color-whatsapp);
+  color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: var(--shadow-floating);
+  z-index: 999;
+  transition: var(--transition-normal);
+  animation: pulse-green 2.5s infinite;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background-color: #20ba5a;
+}
+
+.whatsapp-tooltip {
+  position: absolute;
+  right: 74px;
+  background-color: var(--color-text-dark);
+  color: var(--color-white);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.whatsapp-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -6px;
+  transform: translateY(-50%);
+  border-width: 6px 0 6px 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent var(--color-text-dark);
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. RESPONSIVIDADE (MOBILE-FIRST AJUSTADO)
+   Garante funcionamento impecável em telas de smartphones e tablets
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero-content {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-pills {
+    justify-content: center;
+  }
+
+  .hero-showcase {
+    order: -1;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.7rem;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-image-wrapper {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .booking-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .booking-info {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .booking-direct-contact {
+    max-width: 450px;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .booking-security-note {
+    justify-content: center;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    border-bottom: 1px solid var(--color-pink-medium);
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-normal);
+  }
+
+  .nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .btn-nav {
+    width: 100%;
+    text-align: center;
+    padding: 0.85rem;
+  }
+
+  .hero-section {
+    padding: 110px 0 60px 0;
+    text-align: center;
+  }
+
+  .hero-content {
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-pills {
+    justify-content: center;
+    gap: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1.3rem;
+  }
+
+  .booking-card {
+    padding: 2rem 1.4rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .bottom-flex {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.6rem;
+  }
+
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    font-size: 1.8rem;
+  }
+
+  .whatsapp-tooltip {
+    display: none; /* Em celulares o tooltip flutuante é dispensado */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
